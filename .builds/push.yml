@@ -1,0 +1,38 @@
+---
+image: alpine/edge
+packages:
+  - git
+sources:
+  - https://git.sr.ht:~xyhhx/ansible-alpine-docker-host
+secrets:
+  - d7a47c43-b55c-4337-8f90-a3c7db85726c
+  - 0cae6893-81a1-4712-b0be-a7a37317c074
+environment:
+  repo_name: ansible-alpine-docker-host
+
+  github_username: xyhhx
+  github_repo: xyhhx/ansible-alpine-docker-host
+
+  codeberg_username: xyhhx
+  codeberg_repo: xyhhx/ansible-alpine-docker-host
+tasks:
+  - github: |
+      set +x
+      cd "${repo_name}"
+      github_token=$(cat ~/secrets/github_pat)
+      github_url=$(printf \
+        "https://%s:%s@github.com/%s" \
+        "${github_username}" \
+        "${github_token}" \
+        "${github_repo}")
+      git push --all "${github_url}" -f
+  - codeberg: |
+      set +x
+      cd "${repo_name}"
+      codeberg_token=$(cat ~/secrets/codeberg_pat)
+      codeberg_url=$(printf \
+        "https://%s:%s@codeberg.org/%s"\
+        "${codeberg_username}" \
+        "${codeberg_token}" \
+        "${codeberg_repo}")
+      git push --all "${codeberg_url}" -f
