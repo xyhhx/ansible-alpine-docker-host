@@ -1,0 +1,9 @@
+---
+- name: Ensure root user is locked
+  ansible.builtin.user:
+    state: present
+    name: root
+    password: "!"
+    password_lock: true
+    shell: /sbin/nologin
+    # update_password: on_create

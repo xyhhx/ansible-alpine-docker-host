@@ -1,0 +1,13 @@
+
+---
+- name: QEMU guest agent is installed
+  community.general.apk:
+    name:
+      - qemu-guest-agent
+    state: present
+
+- name: QEMU guest agent is running
+  ansible.builtin.service:
+    name: qemu-guest-agent
+    state: started
+    enabled: true

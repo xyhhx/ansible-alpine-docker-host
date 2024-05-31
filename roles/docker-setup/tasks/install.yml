@@ -1,0 +1,8 @@
+---
+- name: Ensure Docker and related packages are installed
+  community.general.apk:
+    name:
+      - docker
+      - docker-cli-compose
+    state: present
+    update_cache: yes

@@ -1,0 +1,13 @@
+---
+- name: Ensure sudo is installed
+  community.general.apk:
+    name: sudo
+    state: present
+
+- name: /etc/sudoers is configured
+  ansible.builtin.copy:
+    src: sudoers
+    dest: /etc/sudoers
+    owner: root
+    group: root
+    mode: '0644'

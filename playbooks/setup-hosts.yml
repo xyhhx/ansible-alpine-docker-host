@@ -1,0 +1,11 @@
+---
+- hosts: docker_hosts
+  become: true
+  remote_user: "{{ lookup('env', 'ADMIN_USERNAME') }}"
+  roles:
+    - ../roles/remove-default-admin-users
+    - ../roles/common
+    - ../roles/hardening
+    - ../roles/system-configuration
+    - ../roles/docker-setup
+

@@ -1,0 +1,7 @@
+---
+- name: Ensure required base packages are available
+  community.general.apk:
+    name:
+      - curl
+      - git
+    state: present

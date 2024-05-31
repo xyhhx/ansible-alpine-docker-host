@@ -1,0 +1,8 @@
+---
+- name: Ensure proper repos are installed
+  ansible.builtin.template:
+    src: repositories.j2
+    dest: /etc/apk/repositories
+    owner: root
+    group: root
+    mode: '0644'

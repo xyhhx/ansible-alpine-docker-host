@@ -1,0 +1,6 @@
+---
+- name: Ensure hardened-malloc is installed
+  community.general.apk:
+    name:
+      - hardened-malloc
+    state: present

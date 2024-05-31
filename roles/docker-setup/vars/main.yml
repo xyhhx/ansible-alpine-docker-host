@@ -1,0 +1,4 @@
+---
+gvisor_src_base_url: "https://storage.googleapis.com/gvisor/releases/release/latest/x86_64"
+runsc_checksum: "sha512:dbb42ed8e33ee2ff65fb8022ce1d97a7c94562818b4627fcb84378d9302946bfd602d96722ac7145e0b2c08abd36f6b9141b524d28364d2d26768db3252ac206"
+containerd_shim_runsc_checksum: "sha512:ffa8b82df769956f199a9c2d9872deacfc8f32f51d355a4b28f999ad5ea9b6f5c6e77427e902f0f0eea9e63cb0ed36d580358cc972e30b680390f63c862a4912"

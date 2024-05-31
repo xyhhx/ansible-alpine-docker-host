@@ -1,0 +1,7 @@
+---
+- name: Privileged user is set up
+  remote_user: root
+  hosts: docker_hosts
+  roles:
+    - ../roles/privileged-user
+
