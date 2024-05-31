@@ -7,7 +7,7 @@ install-requirements:
 a: playbook
 
 playbook:
-	ansible-playbook -i inventories/hosts $(filter-out $@,$(MAKECMDGOALS))
+	ansible-playbook -i inventories/hosts playbooks/$(filter-out $@,$(MAKECMDGOALS))
 
 role:
 	ansible $(filter-out $@,$(MAKECMDGOALS))

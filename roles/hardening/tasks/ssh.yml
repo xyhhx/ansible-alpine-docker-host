@@ -1,11 +1,13 @@
 ---
 - name: Hardened sshd_config is used
-  ansible.builtin.copy:
-    src: sshd_config
+  ansible.builtin.template:
+    src: sshd_config.j2
     dest: /etc/ssh/sshd_config
     owner: root
     group: root
     mode: '0644'
+  changed_when: true
+  notify: Restart sshd
 
 - name: Hardened ssh_config is used
   ansible.builtin.copy:
@@ -14,3 +16,5 @@
     owner: root
     group: root
     mode: '0644'
+  changed_when: true
+  notify: Restart sshd
